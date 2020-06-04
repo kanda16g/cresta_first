@@ -1,0 +1,643 @@
+@charset "utf-8";
+
+/* Reset
+----------------------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video{
+	zoom:1;	/* hasLayout in IE */
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font:inherit;
+	font-size:100%;
+	font-weight:normal;
+	font-style:normal;
+	vertical-align:baseline;
+	background:transparent;
+	-webkit-text-size-adjust: 100%;
+    word-break: break-all;
+    line-height: 1;
+}
+
+/* placeholderの値を見えなくする */
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
+input:focus::-moz-placeholder { color:transparent; }
+textarea:focus::-webkit-input-placeholder { color:transparent; }
+textarea:focus:-moz-placeholder { color:transparent; }
+textarea:-moz-placeholder { color:transparent; }
+
+/*p{max-height:100%;}*/
+header, menu, nav, footer,
+section,article, aside,
+details, summary,
+figure, figcaption{display:block;}
+table{
+	border-collapse:collapse;
+	border-spacing:0;
+}
+q, blockquote{quotes:none;}
+q:before, q:after, blockquote:before, blockquote:after{
+	content:"";
+	content:none;
+}
+img{
+	font-size:0;
+	line-height:0;
+	vertical-align: bottom;
+	height:auto;
+}
+a{
+	margin:0;
+	padding:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
+	color:#333;
+}
+a:focus{outline:none;}
+a img{
+	border:none;
+	vertical-align:middle;
+}
+input[type="submit"] {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+textarea{overflow:auto;}
+label{cursor:pointer;}
+.clearfix:after{
+	display:block;
+	visibility:hidden;
+	content:".";
+	clear:both;
+	height:0;
+	font-size:0;
+	line-height:0;
+}
+* html .clearfix{zoom:1;}
+*:first-child + html .clearfix{zoom:1;}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+strong{
+	font-weight: normal;
+}
+ul,ol{
+	list-style-type: none;
+}
+body{
+    width: 100%;
+    min-width: 375px;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", 'メイリオ', Meiryo, Helvetica, Arial, Sans-Serif;
+	font-size: 16px;
+	line-height: 1;
+    color: #111;
+}
+.wrap{
+    position: relative;
+    width: 100%;
+    min-width: 375px;
+}
+
+h2,h3,h4,h5{
+	font-weight: normal;
+}
+
+img{
+	max-width:100%;
+}
+
+/* 共通パーツ */
+
+.cont__title {
+    margin: 0 0 71px;
+    font-size: 36px;
+    font-family: Roboto;
+    color: #141414;
+    text-align: center;
+}
+
+.cont__sub {
+    margin: 0 0 40px;
+    font-size: 24px;
+    font-family: "Noto Sans CJK JP";
+    font-weight: bold;
+    color: #141414;
+    line-height: 2;
+
+    @media screen and (max-width: 1050px) {
+        margin: 0 0 30px;
+    }
+
+    @media screen and (max-width: 850px) {
+        font-size: 20px;
+    }
+}
+
+.cont__txt {
+    font-size: 14px;
+    font-family: "Noto Sans CJK JP";
+    font-weight: bold;
+    color: #141414;
+    line-height: 2.14;
+    letter-spacing: 0.05em;
+}
+
+/* =========header=========== */
+
+.header {
+    width: 100%;
+    height: 74px;
+    border-bottom: 2px solid #fff;
+    box-sizing: border-box;
+    background: #1B1310;
+
+    &__inner {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        /*align-items: center;*/
+        width: 1200px;
+        height: 74px;
+        margin: 0 auto;
+        overflow: hidden;
+
+        @media screen and (max-width: 1230px) {
+            width: 100%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        & .title a {
+            font-size: 26px;
+            font-family: Roboto;
+            color: #fff;
+            line-height: 74px;
+
+            &:hover {
+                opacity: .8;
+
+                @media screen and (max-width: 1024px) {
+
+                    opacity: 1;
+                }
+            }
+        }
+
+        & .glonav {
+            position: relative;
+
+            .list {
+                display: flex;
+
+                .item  {
+                    margin: 0 0 0 54px;
+
+                    a {
+                        position: relative;
+                        display: inline-block;
+                        font-family: Roboto;
+                        color: #fff;
+                        line-height: 74px;
+
+                        &:before, &:after {
+                            position: absolute;
+                            bottom: 25px;
+                            content: "";
+                            display: inline-block;
+                            width: 0;
+                            height: 2px;
+                            background: #fff;
+                            transition: all .3s;
+                        }
+
+                        &:before {
+                            left: 50%;
+                        }
+
+                        &:after {
+                            right: 50%;
+                        }
+
+                        &:hover:before, &:hover:after {
+                            width: 50%;
+                        }
+
+                        @media screen and (max-width: 1024px) {
+
+                            &:before, &:after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            
+        }
+
+        .ham {
+            display: none;
+        }
+
+        @media screen and (max-width: 750px) {
+
+            & .glonav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                transition: .3s;
+
+                .list {
+                    display: none;
+
+                    .item {
+                        margin: 0;
+                    }
+                }
+            }
+
+            & .glonav.active {
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #1B1310;
+                z-index: 100;
+
+                .list {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    display: block;
+                    text-align: center;
+                }
+            }
+
+            .ham {
+                position: absolute;
+                top: 30px;
+                right: 15px;
+                display: block;
+                width: 27px;
+                height: 16px;
+                z-index: 300;
+
+                span {
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: #fff;
+                    transition: all .3s;
+                }
+
+                span:nth-of-type(1) {
+                    top: 0;
+                }
+
+                span:nth-of-type(2) {
+                    top: 7px;
+                }
+
+                span:nth-of-type(3) {
+                    bottom: 0;
+                }
+
+                &.active span:nth-of-type(1) {
+                    transform: translateY(7px) rotate(-45deg);
+                }
+            
+                &.active span:nth-of-type(2) {
+                    opacity: 0;
+                }
+            
+                &.active span:nth-of-type(3) {
+                    transform: translateY(-7px) rotate(45deg);
+                }
+            }
+        }
+    }
+}
+
+/* ===========key============ */
+
+.key {
+    position: relative;
+    width: 100%;
+    height: 740px;
+    background: url(../img/fv-bgi@2x.jpg) right bottom/cover no-repeat;
+
+    &__txt {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        padding: 34px 42px;
+        border: 2px solid #fff;
+        font-size: 50px;
+        font-family: Roboto;
+        color: #fff;
+    }
+
+    @media screen and (max-width: 850px) {
+
+        height: 650px;
+        background: url(../img/fv-bgi_sp@2x.jpg) center center/cover no-repeat;
+        
+        &__txt {
+            padding: 34px 42px;
+            font-size: 40px;
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+
+        &__txt {
+            width: 300px;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            font-size: 30px;
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-width: 375px) {
+        
+        height: 590px;
+    }
+}
+
+/* =============main=============== */
+
+main {
+    display: block;
+    width: 1030px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 1045px) {
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+ }
+
+/* ==============cont01================ */
+
+.cont01 {
+    padding: 105px 0 155px;
+}
+
+/* =============cont02================= */
+
+.cont02 {
+    padding: 0 0 155px;
+
+    &__box {
+        display: flex;
+        justify-content: center;
+
+        .imgbox {
+            min-width: 480px;
+        }
+    }
+
+    &__box01 {
+        flex-direction: row-reverse;
+        margin: 0 0 50px;
+
+        .imgbox {
+            margin: 0 70px 0 0;
+        }
+    }
+
+    &__box02 {
+        
+        .txtbox {
+            margin: 0 70px 0 0;
+        }
+    }
+
+    @media screen and (max-width: 1050px) {
+        
+        &__box {
+            display: block;
+            width: 480px;
+            margin: 0 auto;
+        }
+
+        &__box01 {
+            margin: 0 auto 50px;
+        }
+
+        &__box02 {
+        
+            .txtbox {
+                margin: 0;
+            }
+        }
+
+        &__txt {
+            margin: 0 0 40px;
+        }
+    }
+
+    @media screen and (max-width: 510px) {
+
+        &__box {
+            width: 345px;
+
+            .imgbox {
+                min-width: 345px;
+                width: 345px;
+                margin: 0 auto;
+            }
+    
+            .imgbox img {
+                max-width: 345px;
+                height: auto;
+            }
+        }
+            
+    }
+ }
+
+/* =============cont03============= */
+
+.cont03 {
+    padding: 0 0 150px;
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+
+        .box {
+            width: 320px;
+            box-shadow: 0 0 6px rgba(27,19,63,.4);
+            transition: all .4s;
+
+            &:hover {
+                transform: translateY(-15px);
+                box-shadow: 0 0 30px rgba(27,19,63,.4);
+            }
+
+            @media screen and (max-width: 1024px){
+
+                &:hover {
+                    transform: none;
+                    box-shadow: 0 0 6px rgba(27,19,63,.4);
+                }
+            }
+    
+            .txt {
+                padding: 25px 33px;
+                font-size: 13px;
+                font-weight: bold;
+                line-height: 1.92;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1045px) {
+
+        &__body {
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .box {
+                margin: 0 50px 50px 0;
+            }
+
+            .box02 {
+                margin: 0 0 50px 0;
+            }
+
+            .box03 {
+                margin: 0;
+            }
+        }
+    }
+
+    @media screen and (max-width: 750px) {
+
+        &__body {
+            display: block;
+            width: 320px;
+            margin: 0 auto;
+        }
+    }
+
+}
+
+/* =============cont04============ */
+
+.cont04 {
+    padding: 0 0 50px;
+
+    &__title {
+        font-size: 24px;
+        font-family: "Noto Sans CJK JP";
+        font-weight: bold;
+    }
+
+    dl {
+        width: 700px;
+        margin: 0 auto 50px;
+
+        @media screen and (max-width: 750px) {
+
+            width: 345px;
+        }
+
+        dt {
+            margin: 0 0 5px;
+            font-family: "ヒラギノ角ゴ ProN";
+        }
+    
+        dd {
+            margin: 0 0 25px;
+    
+            input {
+            width: 700px;
+            height: 30px;
+            border: 1px solid #141414;
+            
+            @media screen and (max-width: 750px) {
+
+                width: 345px;
+            }
+
+            }
+    
+            textarea {
+                width: 700px;
+                height: 171px;
+                border: 1px solid #141414;
+
+                @media screen and (max-width: 750px) {
+
+                    width: 345px;
+                }
+            }
+        }
+    }
+
+    & > p {
+        text-align: center;
+
+        .submit {
+            padding: 19px 97px;
+            border-radius: 50px;
+            box-sizing: border-box;
+            background: #1B1310;
+            box-shadow: 0 0 6px #1B1310;
+            font-size: 20px;
+            font-family: Avenir;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+
+    
+
+    
+    
+
+    
+}
+
+/* ============footer============ */
+
+.footer {
+    width: 100%;
+    background: #1B1310;
+
+    &__copy {
+        padding: 31px 0;
+        font-size: 14px;
+        font-family: Roboto;
+        color: #fff;
+        text-align: center;
+    }
+}
