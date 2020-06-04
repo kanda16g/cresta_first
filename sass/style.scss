@@ -581,6 +581,7 @@ main {
             width: 700px;
             height: 30px;
             border: 1px solid #141414;
+            box-sizing: border-box;
             
             @media screen and (max-width: 750px) {
 
@@ -593,6 +594,7 @@ main {
                 width: 700px;
                 height: 171px;
                 border: 1px solid #141414;
+                box-sizing: border-box;
 
                 @media screen and (max-width: 750px) {
 
