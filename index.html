@@ -81,17 +81,19 @@
         </div><!-- cont03 -->
         <div class="cont04">
             <h2 class="cont__title cont04__title">お問い合わせ</h2>
-            <dl>
-                <dt><label for="name">担当者名</label></dt>
-                <dd><input type="text" id="name"></dd>
-                <dt><label for="tel">電話番号</label></dt>
-                <dd><input type="text" id="tel"></dd>
-                <dt><label for="email">メールアドレス</label></dt>
-                <dd><input type="text" id="email"></dd>
-                <dt><label for="content">お問い合わせ内容</label></dt>
-                <dd><textarea name="" id="content" cols="30" rows="10"></textarea></dd>
-            </dl>
-            <p><input class="submit" type="submit"></p>
+            <form action="" >
+                <dl>
+                    <dt><label for="name">担当者名</label></dt>
+                    <dd><input type="text" name="fullname" id="name"></dd>
+                    <dt><label for="tel">電話番号</label></dt>
+                    <dd><input type="tel" name="tel" id="tel"></dd>
+                    <dt><label for="email">メールアドレス</label></dt>
+                    <dd><input type="email" name="email" id="email"></dd>
+                    <dt><label for="content">お問い合わせ内容</label></dt>
+                    <dd><textarea name="message" id="content" cols="30" rows="10"></textarea></dd>
+                </dl>
+                <p><input class="submit" name="send" type="submit"></p>
+            </form>
         </div><!-- cont04 -->
     </main>
     <footer class="footer">

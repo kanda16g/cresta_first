@@ -620,11 +620,11 @@ main {
   }
 }
 
-.cont04 > p {
+.cont04 form > p {
   text-align: center;
 }
 
-.cont04 > p .submit {
+.cont04 form > p .submit {
   padding: 19px 97px;
   border-radius: 50px;
   box-sizing: border-box;
